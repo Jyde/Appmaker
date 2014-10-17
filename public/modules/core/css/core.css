@@ -1,0 +1,99 @@
+.content {
+	margin-top: 50px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty{
+    border-color:#FA787E;
+}
+.ng-valid.ng-dirty{
+    border-color:#78FA89;
+}
+
+.login-form-bg {
+	background-color: white;
+	border: 15px solid;
+	border-radius: 15px;
+	margin-top: 50px;
+	border-color: white;
+}
+/*body*/
+body{
+	background-color:#F3F0EA;
+}
+/*Tab*/
+ul.nav.nav-tabs{
+	padding-left: 30px;
+	margin-bottom: 15px;
+}
+/*smalltext */
+h3 small{
+	margin-left: 20px;
+	color: #aea99f;
+}
+
+
+/*image banner*/
+.img-banner{
+	background-image: url('../img/brand/bridgewater-bw.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 185px;
+}
+
+.hanging-logo{
+	margin-left: 10px;
+	margin-top: -50px;
+}
+
+.job-details,.comment-bg{
+	margin-top: 15px;
+	background-color: white;
+}
+.set-desc{
+	padding: 10px 10px 20px 20px;
+}
+.jumbotron{
+	background-image: url('../img/brand/edelman.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;	
+}
+
+.landing-bg{
+	background-color: black;
+}
+.container .jumbotron {
+	margin-top:0;
+	border-radius: 0px;
+}
+.landing-header{
+	background-color:#7cb228;
+}
+.navbar-brand {
+	color: white;
+}
+.topLink{
+	color: white
+}
+.jumbotron h1{
+	font-size: 46px;
+	color: white;
+	text-shadow:1px 1px 15px #000;
+}
+
+.combine{
+	margin-top: -20px;
+	padding: 0 30px
+}
+.list-bg, .cat-bg{
+	background-color: white;
+	margin-left: 30px
+}
+.cat-bg{
+	margin-left: 40px
+}
+

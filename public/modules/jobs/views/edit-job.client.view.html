@@ -1,0 +1,104 @@
+<section data-ng-controller="JobsController">
+    <div class="page-header" data-ng-init="getCategories(); findOne()">
+        <h1>Edit Job post</h1>
+    </div>
+    <div class="col-md-12">
+        <form name="jobForm" class="form-horizontal" data-ng-submit="update(jobForm.$valid)" novalidate>
+            <fieldset><!-- Form for Posting a Job -->
+                <div class="row">
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>                  
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 text-center">
+                        <img src="{{job.image}}" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Job Title -->
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && jobForm.title.$invalid}">
+                            <label class="control-label" for="title">Job Title</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="job.title" id="title" class="form-control" placeholder="Job title" required>
+                            </div>
+                        </div>
+                        <!-- Job Description -->
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && jobForm.name.$invalid}">
+                            <label class="control-label" for="name">Job Description</label>
+                            <div class="controls">
+                                <textarea  rows="2" data-ng-model="job.description" id="name" class="form-control" placeholder="Enter Description of Job you want to post" required></textarea>
+
+                                <div ng-show="submitted && jobForm.name.$invalid" class="help-block">
+                                    <p ng-show="jobForm.name.$error.required" class="text-danger">Description is required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Direct link -->
+                        <div class="form-group" ng-class="{ 'has-error' : submitted && jobForm.link.$invalid}">
+                            <label class="control-label" for="link">Direct link</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="job.apply" id="link" class="form-control" placeholder="Direct link" required>
+                            </div>
+                        </div>
+
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="uploadJobImg">Change Display Image</label>
+                                <div class="controls">
+                                    <input type="file" id="uploadJobImg" data-ng-file-select="onFileSelect($files)"  accept="image/png, image/jpeg">
+                                </div>
+                            </div>
+
+                        <div class="form-group col-sm-5">
+                            <label for="deadline">Due By:</label>
+                            <div class="control">
+                                <input type="text" id="deadline" data-ng-model="job.deadline" class="form-control text-muted" placeholder="YYYY-MM-DD" required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Select Category data-ng-options="category for category._id in categories"  -->
+                        <div class="form-group">
+                            <label class="control-label" for="category">Job Category</label>
+                            <select class="form-control" data-ng-model="job.category" ng-required> 
+                                <option data-ng-repeat="cat in categories" value="{{cat._id}}" label='{{cat.name}}'>{{cat.name}}</option>
+                            </select>
+                        </div>
+                        <!-- Second column input control -->
+                        <div class="form-group">
+                            <label class="control-label" for="level">Professional Level</label>
+                            <select class="form-control" data-ng-model="job.level" data-ng-options="level for level in levels"></select>
+                        </div>
+                        <!-- Location -->
+                        <div class="form-group">
+                            <label for="location">Job Location</label>
+                            <div class="control">
+                                <input type="text" id="location" data-ng-model="job.location" class="form-control text-muted" placeholder="Job location" required>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Submit -->
+                        <div class="form-group pull-left">
+                            <input type="submit" class="btn btn-green btn-primary btn-large" value="Confirm Edit">
+                         </div>
+                    </div> 
+                </div>
+
+        <!-- End of Code -->
+            </fieldset>
+        </form>
+    </div>
+</section>

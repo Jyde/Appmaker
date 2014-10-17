@@ -1,0 +1,104 @@
+<section data-ng-controller="JobsController" data-ng-init="find()" class="col-xs-12 col-sm-8">
+    <div class="row">
+        <h3 class="page-header">
+                Jobs
+        </h3>
+    </div>
+    <div class="row">
+        <div class="row">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#">Jobs</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="list-group">
+    <a data-ng-repeat="job in jobs" data-ng-href="#!/jobs/{{job._id}}" class="list-group-item">
+        <div class="row">
+            <div class=" col-xs-4 col-sm-2 text-center">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <!-- Job Image -->
+                        <img ng-src="{{job.image}}" alt="Image of Job" style="height:100px; width:100px;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <!-- link to apply for Job -->
+                        <small>
+                            <span data-ng-bind="job.apply"></span>
+                        </small> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8" >
+                    <div class="row">
+                        <!-- Title of Job -->
+                        <h4 class="list-group-item-heading" data-ng-bind="job.title"></h4>
+                    </div>
+                    <div class="row">
+                        <!-- Description -->
+                        <small class="list-group-item-text">
+                            <span data-ng-bind="job.description"></span>
+                        </small>
+                    </div>
+                    <div class="row">
+                        <!-- number of comments -->
+                        <small class="list-group-item-text pull-right">
+                            <span data-ng-bind="job.comments.length"></span> &nbsp comment(s)
+                        </small>
+                    </div>
+            </div>
+<!--             <div class="col-sm-2 col-xs-12">
+                <div>
+                    <small>upvotes</small>
+                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                    {{job.votes.upvotes}}
+                </div>
+                <div>
+                    <br>
+                </div>
+                <div>
+                    <small>Downvotes</small>
+                    <span class="glyphicon glyphicon-thumbs-down" ng-click="incrementDownvotes(job.votes)"></span>
+                    {{job.votes.downvotes}}
+                </div>
+            </div> -->
+        </div>
+    </a>
+</div>
+    <div class="alert alert-warning text-center" data-ng-hide="!jobs.$resolved || jobs.length">
+        No Jobs yet, why don't you <a href="/#!/jobs/create">create one</a>?
+    </div>
+</section>
+
+
+
+
+<!-- <section data-ng-controller="JobsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Jobs</h1>
+    </div>
+    <div class="list-group">
+
+        <a data-ng-repeat="job in jobs" data-ng-href="#!/jobs/{{job._id}}" class="list-group-item">
+         <h4 class="list-group-item-heading" data-ng-bind="job.title"></h4>
+        <div>
+        <i class="glyphicon glyphicon-chevron-up"></i>
+        <i class="glyphicon glyphicon-chevron-down"></i>
+        </div>
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="job.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="job.user.displayName"></span>
+			</small>
+
+            <small class="list-group-item-text">
+            (<span data-ng-bind="job.comments.length"></span>)comment(s)
+            </small>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!jobs.$resolved || jobs.length">
+    	No Jobs yet, why don't you <a href="/#!/jobs/create">create one</a>?
+    </div>
+</section> -->
